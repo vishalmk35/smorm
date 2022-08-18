@@ -16,7 +16,14 @@
   },
 
   "keywords": [
-    "orm"
+    "orm",
+    "mysql",
+    "mapping",
+    "lightweight",
+    "simple",
+    "sql",
+    "back-end",
+    "object relational mapping"
   ],
   "author": "Vishal Kurdekar",
   "license": "ISC"
