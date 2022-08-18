@@ -83,15 +83,7 @@ class utils {
         y += ')'
         return y
     }
-
-
-
-
-
-
 }
-
-
 
 class table extends utils {
     constructor(name) {
@@ -239,9 +231,6 @@ class table extends utils {
         }
         return this
     }
-
-
-
 
 }
 
