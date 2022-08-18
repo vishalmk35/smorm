@@ -25,6 +25,11 @@
     "back-end",
     "object relational mapping"
   ],
-  "author": "Vishal Kurdekar",
-  "license": "ISC"
+
+  "files": [
+	  "main.js",
+	  "package.json"
+  ],
+  "author": "Vishal Kurdekar <vishalmk35@gmail.com>",
+  "license": "BSD-3-Clause"
 }
