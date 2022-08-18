@@ -1,0 +1,23 @@
+{
+  "name": "smorm",
+  "version": "1.0.0",
+  "description": "A lightweight ORM for MySQL database with basic CRUD functionalities",
+  "main": "main.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "mysql2": "^2.3.3"
+  },
+
+  "devDependencies": {
+    "jest": "^28.1.3"
+  },
+
+  "keywords": [
+    "orm"
+  ],
+  "author": "Vishal Kurdekar",
+  "license": "ISC"
+}
