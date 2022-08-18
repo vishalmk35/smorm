@@ -15,7 +15,6 @@ class utils {
         this.conditionList = []
         this.conditionStat = ''
         this.dataList = []
-
     }
 
     columns(listOfCol, brackets, update) {
@@ -42,18 +41,14 @@ class utils {
         } else {
             this.field = statement
         }
-
     }
 
     conditions(conds) {
         this.conditionList = []
-
         if (conds) {
-
             if (typeof conds != 'object') {
                 this.conditionStat = "WHERE id = ?"
                 this.conditionList.push(conds)
-
             } else if (typeof conds == 'object') {
                 this.conditionStat = 'WHERE '
                 let x
@@ -62,9 +57,7 @@ class utils {
                     this.conditionList.push(conds[x])
                     this.conditionStat += subConditionStat
                 }
-
                 this.conditionStat = this.conditionStat.substr(0, this.conditionStat.length - 4)
-
             }
         } else {
             this.conditionStat = ''
@@ -78,7 +71,6 @@ class utils {
             y += ' ?,'
             x += 1
         }
-
         y = y.replace(/\,$/, '')
         y += ')'
         return y
@@ -100,7 +92,6 @@ class table extends utils {
                     var [resul, fi] = await conPromise.execute(this.query)
                 } else {
                     var [resul, fi] = await conPromise.execute(this.query, this.conditionList)
-
                 }
                 break;
 
@@ -117,10 +108,7 @@ class table extends utils {
             case 'DELETE':
                 var [resul, fi] = await conPromise.execute(this.query, this.conditionList)
                 break;
-
-
         }
-
         return resul
     }
 
@@ -142,15 +130,12 @@ class table extends utils {
         return this.query
     }
 
-
-
     gett(condition, ex) {
         this.operation = 'SELECT'
         this.field = '*'
         this.limit = 'LIMIT 1'
         this.conditions(condition)
         this.qr()
-
         if (ex) {
             return this.execute()
         }
@@ -202,16 +187,12 @@ class table extends utils {
         this.gett(condition)
         this.limit = ''
         this.qr()
-
         if (ex) {
             return this.execute()
 
         }
-
-
         return this
     }
-
 
     fi(fis, ex) {
         if (this.operation == 'INSERT INTO') {
@@ -225,13 +206,11 @@ class table extends utils {
             this.columns(fis)
         }
         this.qr()
-
         if (ex) {
             return this.execute()
         }
         return this
     }
-
 }
 
 module.exports = table

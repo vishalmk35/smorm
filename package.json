@@ -30,6 +30,16 @@
 	  "main.js",
 	  "package.json"
   ],
+
+  "repository": {
+	  "type": "git",
+	  "url": "https://github.com/vishalmk35/smorm.git"
+  },
+
+  "bugs": {
+	  "url": "https://github.com/vishalmk35/smorm/issues"
+  },
+  "homepage": "https://github.com/vishalmk35/smorm",
   "author": "Vishal Kurdekar <vishalmk35@gmail.com>",
   "license": "BSD-3-Clause"
 }
