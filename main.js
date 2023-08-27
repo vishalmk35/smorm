@@ -47,7 +47,7 @@ class utils {
         this.conditionList = []
         if (conds) {
             if (typeof conds != 'object') {
-                this.conditionStat = "WHERE id = ?"
+                this.conditionStat = `WHERE ${this.primaryKey} = ?`
                 this.conditionList.push(conds)
             } else if (typeof conds == 'object') {
                 this.conditionStat = 'WHERE '
@@ -78,11 +78,12 @@ class utils {
 }
 
 class table extends utils {
-    constructor(name) {
+    constructor(name, primaryKey) {
         super()
         this.name = name
         this.query = ""
         this.limit = ''
+	this.primaryKey = primaryKey
     }
 
     async execute() {

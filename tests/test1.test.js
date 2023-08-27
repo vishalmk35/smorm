@@ -1,5 +1,5 @@
 let cls = require('../main.js')
-let Product = new cls('Product')
+let Product = new cls('Product', 'Productid')
 let mysql2 = require('mysql2')
 
 jest.mock('mysql2')
@@ -43,7 +43,7 @@ test('Conditions function with object', () => {
 
 test('Conditions function with id', () => {
     Product.conditions(3)
-    expect(Product.conditionStat).toBe('WHERE id = ?')
+    expect(Product.conditionStat).toBe(`WHERE ${Product.primaryKey} = ?`)
     expect(Product.conditionList).toEqual([3])
 })
 
@@ -68,7 +68,7 @@ test('InsertPHolders function with datalist length = 1', () => {
 test('Gett function with id', async () => {
     var se = await Product.gett(2, true)
     expect(se[0]).toBe('result')
-    expect(se[1]).toBe('SELECT * FROM Product WHERE id = ? LIMIT 1')
+    expect(se[1]).toBe(`SELECT * FROM Product WHERE ${Product.primaryKey} = ? LIMIT 1`)
     expect(se[2]).toEqual([2])
 })
 
@@ -121,7 +121,7 @@ test('Insert function without data', () => {
 test('Update function with condition, values and fields', async () => {
     var sh = await Product.update(350, ["allnew"]).fi(["name"], true)
     expect(sh[0]).toBe('result')
-    expect(sh[1]).toBe('UPDATE Product SET  name = ? WHERE id = ?')
+    expect(sh[1]).toBe(`UPDATE Product SET  name = ? WHERE ${Product.primaryKey} = ?`)
     expect(sh[2]).toEqual(["allnew", 350])
 })
 
